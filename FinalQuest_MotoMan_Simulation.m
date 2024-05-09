@@ -6,16 +6,16 @@ close all;
 %syms t;
 
 % 参数设置
-a1 = 200; a2 = 600; a3 = 115; d4 = 770;
+a1 = 150; a2 = 760; a3 = 220; d4 = 970;
 nx = 0; ny = 0; nz = 1;
 ox = 0; oy = -1; oz = 0;
 ax = 1; ay = 0; az = 0;
 
 % 轨迹设置（五角星塔）
 t = 0:0.001*pi:5*pi;
-px = 100 + (100-25.*sin(5.*t)).*cos(t).*sqrt(1-(t/(5.*pi)).^2);
-py = 35 + (100-25.*sin(5.*t)).*sin(t).*sqrt(1-(t/(5.*pi)).^2);
-pz = t;
+px = 900 + 2.*((100-25.*sin(5.*t)).*cos(t).*sqrt(1-(t/(5.*pi)).^2));
+py = 335 + 2.*((100-25.*sin(5.*t)).*sin(t).*sqrt(1-(t/(5.*pi)).^2));
+pz = 1.5.*t;
 
 % 计算得到的反解结果
 theta1 = atan2(py, px);
@@ -69,9 +69,9 @@ xlabel('t'), ylabel('\theta_{1}');
 title('\theta_{1}');
 
 subplot(3,2,2);
-plot(t, rad2deg(theta2p), '-b'); grid on;
+plot(t, rad2deg(theta2p) + 360, '-b'); grid on;
 hold on;
-plot(t, rad2deg(theta2n), '-r'); grid on;
+plot(t, rad2deg(theta2n) + 360, '-r'); grid on;
 xlabel('t'), ylabel('\theta_{2}');
 title('\theta_{2}');
 
